@@ -1,43 +1,57 @@
 
-/* Página exclusiva de Locais de Apoio */
+/* =========================================
+   MANDACARU - PÁGINA DE LOCAIS DE APOIO
+   Estilos exclusivos desta página
+========================================= */
+
+/* CONTEÚDO PRINCIPAL */
 
 .pagina-apoio {
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 32px 20px 48px;
+  padding: 38px 24px 50px;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  color: #443b45;
 }
+
+.pagina-apoio * {
+  box-sizing: border-box;
+}
+
+/* APRESENTAÇÃO */
 
 .introducao-apoio {
-  margin-bottom: 22px;
-}
-
-.introducao-apoio h2 {
-  color: #76172C;
-  font-family: var(--fonte-titulo);
-  font-size: clamp(25px, 4vw, 36px);
-  margin: 5px 0 8px;
-}
-
-.introducao-apoio > p {
-  max-width: 900px;
+  margin-bottom: 28px;
 }
 
 .etiqueta-apoio {
-  color: #9a3caa;
+  display: inline-block;
+  color: #a43b91;
+  font-size: 11px;
   font-weight: 800;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 12px;
+  margin-bottom: 8px;
 }
 
-.aviso-dados {
-  background: #fff4d9;
-  border-left: 4px solid #d69b24;
-  border-radius: 7px;
-  padding: 12px 15px;
-  margin-top: 14px;
-  font-size: 14px;
+.introducao-apoio h2 {
+  color: #76172c;
+  font-family: 'Nova Mono', monospace;
+  font-size: clamp(26px, 4vw, 38px);
+  margin: 5px 0 12px;
 }
+
+.introducao-apoio > p {
+  max-width: 850px;
+  color: #625764;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* FILTROS */
 
 .painel-filtros {
   display: flex;
@@ -45,222 +59,377 @@
   align-items: end;
   gap: 14px;
   background: #fff;
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.09);
-  margin-bottom: 12px;
+  padding: 20px;
+  border: 1px solid #f0dcec;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(80, 35, 75, 0.07);
+  margin-bottom: 14px;
 }
 
 .campo-filtro {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 7px;
   flex: 1;
   min-width: 190px;
 }
 
 .campo-filtro label {
-  font-weight: 700;
+  color: #583b59;
   font-size: 14px;
+  font-weight: 800;
 }
 
 .campo-filtro select {
   width: 100%;
-  padding: 11px;
-  border: 1px solid #d8a6e2;
-  border-radius: 7px;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #dcb9d9;
+  border-radius: 8px;
   background: #fff;
-  font: inherit;
+  color: #443b45;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  outline: none;
+}
+
+.campo-filtro select:focus {
+  border-color: #a43b91;
+  box-shadow: 0 0 0 3px rgba(164, 59, 145, 0.12);
 }
 
 .painel-filtros button {
-  border: 0;
-  border-radius: 7px;
-  padding: 12px 17px;
-  background: #8f269f;
+  min-height: 44px;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 19px;
+  background: #a43b91;
   color: #fff;
-  font: 700 14px var(--fonte-texto);
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
   cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.painel-filtros button:hover {
+  background: #842c75;
+  transform: translateY(-1px);
 }
 
 .painel-filtros .botao-secundario {
-  background: #5d5260;
+  background: #635568;
+}
+
+.painel-filtros .botao-secundario:hover {
+  background: #493d4e;
 }
 
 .painel-filtros button:disabled {
-  opacity: .6;
+  opacity: 0.6;
   cursor: wait;
+  transform: none;
 }
+
+/* STATUS */
 
 .status-apoio {
-  min-height: 26px;
-  margin: 10px 0;
-  color: #514354;
+  min-height: 24px;
+  margin: 12px 0;
+  color: #62536a;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
-/* LEGENDA DO MAPA */
+/* LEGENDA */
 
 .legenda-apoio {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 20px;
-  margin: 14px 0;
-  font-size: 13px;
+  align-items: center;
+  gap: 12px 24px;
+  margin: 18px 0;
+  padding: 13px 16px;
+  background: #fff;
+  border: 1px solid #f0dcec;
+  border-radius: 10px;
 }
 
 .legenda-apoio span {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 9px;
+  color: #514653;
+  font-size: 13px;
+  font-weight: 700;
 }
 
-.marcador-legenda,
-.pino-mapa {
+.marcador-legenda {
   display: inline-block;
   width: 13px;
   height: 13px;
   border-radius: 50%;
   border: 2px solid #fff;
-  box-shadow: 0 0 0 1px rgba(0,0,0,.25);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
 }
 
-/* Delegacias: vermelho */
-
-.marcador-delegacia,
-.pino-delegacia {
+.marcador-delegacia {
   background: #d93655;
 }
 
-/* Centros de Referência / CEAMs: verde */
-
 .marcador-centro,
-.pino-centro,
-.marcador-compaz,
-.pino-compaz {
-  background: #00FF00
+.marcador-compaz {
+  background: #24865b;
 }
 
-.marcador-outro,
-.pino-outro {
+.marcador-outro {
   background: #9a55b5;
 }
 
 /* MAPA */
 
+.secao-mapa {
+  margin-top: 25px;
+}
+
+.secao-mapa h3 {
+  color: #76172c;
+  font-family: 'Nova Mono', monospace;
+  font-size: 21px;
+  margin: 0 0 14px;
+}
+
 #mapaPernambuco {
   width: 100%;
   height: min(68vh, 650px);
   min-height: 390px;
-  border-radius: 12px;
+  border: 1px solid #ead9ed;
+  border-radius: 13px;
   overflow: hidden;
   z-index: 1;
-  box-shadow: 0 3px 14px rgba(0,0,0,.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
 }
 
-.pino-mapa {
-  width: 18px;
-  height: 18px;
-  border-width: 3px;
+/* POPUPS DO LEAFLET */
+
+.leaflet-popup-content-wrapper {
+  border-radius: 9px;
 }
+
+.leaflet-popup-content {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.creditos-mapa {
+  margin: 10px 2px 0;
+  color: #746b76;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.creditos-mapa a {
+  color: #762b8b;
+  font-weight: 700;
+}
+
+/* RESULTADOS */
 
 .resultados-apoio {
-  margin-top: 28px;
+  margin-top: 42px;
 }
 
 .titulo-resultados {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
+  margin-bottom: 18px;
 }
 
 .titulo-resultados h3,
 .contatos-emergencia h3 {
-  color: #76172C;
+  color: #76172c;
+  font-family: 'Nova Mono', monospace;
+  font-size: 22px;
+  margin: 0;
+}
+
+.titulo-resultados .etiqueta-apoio {
+  margin-bottom: 6px;
 }
 
 #quantidadeLocais {
-  color: #6c596f;
-  font-size: 14px;
-  font-weight: 700;
+  flex-shrink: 0;
+  color: #7c4778;
+  background: #f7eafa;
+  border-radius: 20px;
+  padding: 8px 13px;
+  font-size: 13px;
+  font-weight: 800;
 }
+
+/* LISTA DE SERVIÇOS */
 
 .lista-locais {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 12px;
-  margin-top: 14px;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
 }
 
 .lista-locais li {
+  min-width: 0;
   background: #fff;
-  border-radius: 10px;
-  padding: 15px;
   border: 1px solid #ead9ed;
-  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 3px 10px rgba(80, 35, 75, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.lista-locais li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(80, 35, 75, 0.10);
 }
 
 .lista-locais h4 {
   color: #64236f;
-  margin-bottom: 5px;
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0 0 8px;
 }
 
 .lista-locais p {
-  font-size: 14px;
-  margin: 3px 0;
+  color: #514653;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 7px 0;
   overflow-wrap: anywhere;
 }
 
+.lista-locais p strong {
+  color: #49364c;
+}
+
 .lista-locais a {
+  display: inline-block;
   color: #762b8b;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-top: 5px;
+}
+
+.lista-locais a:hover {
+  color: #a43b91;
 }
 
 .tag-categoria {
   display: inline-block;
+  color: #783d7b;
+  background: #f5e8f5;
+  border: 1px solid #ead4eb;
   font-size: 11px;
   font-weight: 800;
-  padding: 3px 8px;
+  padding: 4px 9px;
   border-radius: 20px;
-  background: #f3e6f6;
-  margin: 5px 0;
+  margin: 3px 0 8px;
 }
+
+/* CONTATOS DE EMERGÊNCIA */
 
 .contatos-emergencia {
-  margin-top: 28px;
-  padding: 18px;
-  border-radius: 10px;
+  margin-top: 42px;
+  padding: 25px;
+  border-radius: 13px;
   background: #fff;
+  border: 1px solid #f0dcec;
   border-left: 5px solid #d93655;
+  box-shadow: 0 3px 12px rgba(80, 35, 75, 0.06);
 }
 
-.creditos-mapa,
-.fonte-oficial {
+.titulo-emergencia {
+  margin-bottom: 20px;
+}
+
+.titulo-emergencia .etiqueta-apoio {
+  margin-bottom: 6px;
+}
+
+.lista-contatos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.contato-emergencia {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 15px;
+  background: #fff7fa;
+  border: 1px solid #f1dce4;
+  border-radius: 10px;
+}
+
+.numero-emergencia {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #d93655;
+  color: #fff;
+  font-family: 'Nova Mono', monospace;
+  font-size: 20px;
+}
+
+.contato-emergencia h4 {
+  color: #76172c;
+  font-size: 14px;
+  margin: 0 0 5px;
+}
+
+.contato-emergencia p {
+  color: #655966;
   font-size: 12px;
-  margin-top: 12px;
-  color: #5e5660;
+  line-height: 1.5;
+  margin: 0;
 }
 
-.creditos-mapa a,
-.fonte-oficial a {
-  color: #762b8b;
+.fonte-oficial {
+  color: #655966;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 18px 0 0;
 }
 
-/* RODAPÉ - MESMA IDENTIDADE VISUAL DA PÁGINA INICIAL */
+/* =========================================
+   RODAPÉ - IDENTIDADE VISUAL MANDACARU
+========================================= */
 
 #fontesMapaApoio,
 .rodape-apoio {
+  display: block;
   width: 100%;
   box-sizing: border-box;
   background-color: #e789fa;
   color: #fff;
-  padding: 45px 20px 25px;
-  margin-top: 60px;
+  padding: 45px 24px 25px;
+  margin-top: 55px;
   font-family: 'Nunito', sans-serif;
 }
 
 .rodape-apoio .container-rodape {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
@@ -275,7 +444,7 @@
   font-size: 18px;
   margin: 0 0 18px;
   padding-bottom: 10px;
-  border-bottom: 2px solid #D86487;
+  border-bottom: 2px solid #d86487;
 }
 
 .rodape-apoio p {
@@ -292,7 +461,7 @@
 
 .rodape-apoio .texto-rodape {
   margin-top: 15px;
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .rodape-apoio .lista-integrantes {
@@ -324,30 +493,32 @@
 
 .rodape-apoio .fontes-rodape a {
   color: #fff;
-  font-weight: 700;
+  font-weight: 800;
   text-decoration: underline;
   text-underline-offset: 3px;
-  transition: .3s;
+  transition: color 0.2s;
 }
 
 .rodape-apoio .fontes-rodape a:hover {
-  color: #76172C;
+  color: #76172c;
 }
 
 .aviso-fontes-rodape {
   max-width: 1200px;
   margin: 35px auto 0;
   padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
   color: #fff;
   font-size: 12px;
   line-height: 1.8;
-  opacity: .95;
+  opacity: 0.95;
 }
 
-/* RESPONSIVIDADE */
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
   .rodape-apoio .container-rodape {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
@@ -356,11 +527,38 @@
   .rodape-apoio .fontes-rodape {
     grid-column: 1 / -1;
   }
+
+  .lista-contatos {
+    grid-template-columns: 1fr;
+  }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .pagina-apoio {
-    padding: 22px 13px 35px;
+    padding: 25px 15px 35px;
+  }
+
+  .introducao-apoio > p {
+    font-size: 14px;
+  }
+
+  .painel-filtros {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .campo-filtro {
+    min-width: 100%;
+  }
+
+  .painel-filtros button {
+    width: 100%;
+  }
+
+  .legenda-apoio {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
   }
 
   #mapaPernambuco {
@@ -368,12 +566,23 @@
     height: 55vh;
   }
 
-  .painel-filtros button {
-    width: 100%;
+  .titulo-resultados {
+    align-items: flex-start;
   }
-}
 
-@media (max-width: 550px) {
+  .titulo-resultados h3,
+  .contatos-emergencia h3 {
+    font-size: 19px;
+  }
+
+  .lista-locais {
+    grid-template-columns: 1fr;
+  }
+
+  .contatos-emergencia {
+    padding: 18px;
+  }
+
   .rodape-apoio {
     padding: 35px 20px 20px;
   }
@@ -394,5 +603,26 @@
   .aviso-fontes-rodape {
     margin-top: 25px;
     font-size: 11px;
+  }
+}
+
+@media (max-width: 380px) {
+  .titulo-resultados {
+    flex-direction: column;
+  }
+
+  #quantidadeLocais {
+    align-self: flex-start;
+  }
+
+  .contato-emergencia {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .numero-emergencia {
+    width: 48px;
+    height: 48px;
+    font-size: 17px;
   }
 }
