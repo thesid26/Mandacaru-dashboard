@@ -79,31 +79,9 @@
 
     </section>
 
-    <!-- Mapa por região -->
+    <!-- Mapa de mortes por região -->
     <h2>Mortes por região</h2>
     <div id="mapa"></div>
-
-    <!-- Acesso à página de locais de apoio -->
-    <section id="apoio">
-
-      <h2>Casas de apoio perto de você</h2>
-
-      <p>
-        Encontre delegacias, centros de atendimento e outros locais
-        de apoio e proteção para mulheres em Pernambuco.
-      </p>
-
-      <button id="btnApoio" type="button">
-        📍 Ver locais de apoio
-      </button>
-
-      <p class="emergencia">
-        Em perigo agora? Ligue <strong>190</strong>.<br>
-        Orientação: <strong>Ligue 180</strong> ou Liga Mulher
-        <strong>0800 281 0107</strong>.
-      </p>
-
-    </section>
 
     <!-- Metas com Back4App -->
     <section class="metas">
@@ -193,19 +171,6 @@
 
   <!-- Scripts do dashboard -->
   <script src="script.js"></script>
-
-  <!-- Navegação para a página de locais de apoio -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const botaoApoio = document.getElementById('btnApoio');
-
-      if (botaoApoio) {
-        botaoApoio.addEventListener('click', function () {
-          window.location.href = 'apoio.html';
-        });
-      }
-    });
-  </script>
 
 </body>
 </html>
