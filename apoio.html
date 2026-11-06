@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Nova+Mono&family=Nunito:wght@300;400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Nova+Mono&family=Nunito:wght@300;400;600;700;800&display=swap"
     rel="stylesheet"
   >
 
@@ -23,21 +23,20 @@
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   >
 
-  <!-- Estilos do projeto -->
-  <link rel="stylesheet" href="dashboard.css">
-  <link rel="stylesheet" href="apoio.css">
+  <!-- Estilos compartilhados da página inicial -->
+  <link rel="stylesheet" href="style.css">
 
+  <!-- Estilos exclusivos de Locais de Apoio -->
+  <link rel="stylesheet" href="apoio.css">
 </head>
 
 <body>
 
   <!-- CABEÇALHO E MENU -->
   <header class="cabecalho">
-
     <div class="container-cabecalho">
 
       <div class="logo-area">
-
         <img
           src="img/logo-mandacaru-branco.png"
           alt="Logo Mandacaru"
@@ -45,11 +44,9 @@
         >
 
         <h1 class="nome-projeto">Mandacaru</h1>
-
       </div>
 
-      <nav class="menu-navegacao">
-
+      <nav class="menu-navegacao" aria-label="Menu principal">
         <ul class="lista-menu">
 
           <li>
@@ -69,25 +66,27 @@
           </li>
 
           <li>
-            <a href="apoio.html" class="link-menu" aria-current="page">
+            <a
+              href="apoio.html"
+              class="link-menu"
+              aria-current="page"
+            >
               Locais de Apoio
             </a>
           </li>
 
         </ul>
-
       </nav>
 
     </div>
-
   </header>
-
 
   <!-- CONTEÚDO PRINCIPAL -->
   <main class="pagina-apoio">
 
     <!-- APRESENTAÇÃO -->
     <section class="introducao-apoio">
+      <span class="etiqueta-apoio">MANDACARU • PERNAMBUCO</span>
 
       <h2>Locais de Apoio</h2>
 
@@ -96,21 +95,17 @@
         em situação de violência em Pernambuco. Consulte os endereços,
         telefones e informações disponíveis.
       </p>
-
     </section>
-
 
     <!-- FILTROS -->
     <section class="painel-filtros" aria-label="Filtros dos serviços">
 
       <div class="campo-filtro">
-
         <label for="filtroCategoria">
           Categoria de atendimento
         </label>
 
         <select id="filtroCategoria">
-
           <option value="todos">Todas as categorias</option>
 
           <option value="delegacia">
@@ -120,28 +115,20 @@
           <option value="centro">
             Centros de Referência / CEAMs
           </option>
-
         </select>
-
       </div>
 
-
       <div class="campo-filtro">
-
         <label for="filtroMunicipio">
           Município
         </label>
 
         <select id="filtroMunicipio">
-
           <option value="todos">
             Todos os municípios
           </option>
-
         </select>
-
       </div>
-
 
       <button id="btnAtualizarLocais" type="button">
         Filtrar locais
@@ -157,8 +144,7 @@
 
     </section>
 
-
-    <!-- STATUS DOS FILTROS -->
+    <!-- STATUS -->
     <p
       id="statusApoio"
       class="status-apoio"
@@ -168,9 +154,8 @@
       Carregando serviços cadastrados...
     </p>
 
-
     <!-- LEGENDA -->
-    <section class="legenda-apoio">
+    <section class="legenda-apoio" aria-label="Legenda do mapa">
 
       <span>
         <i class="marcador-legenda marcador-delegacia"></i>
@@ -184,7 +169,6 @@
 
     </section>
 
-
     <!-- MAPA -->
     <section class="secao-mapa">
 
@@ -192,7 +176,7 @@
 
       <div
         id="mapaPernambuco"
-        aria-label="Mapa de Pernambuco"
+        aria-label="Mapa de Pernambuco com os locais de apoio"
       ></div>
 
       <p class="creditos-mapa">
@@ -209,18 +193,16 @@
 
     </section>
 
-
     <!-- RESULTADOS -->
     <section class="resultados-apoio">
 
       <div class="titulo-resultados">
+        <div>
+          <span class="etiqueta-apoio">ENCONTRE ATENDIMENTO</span>
+          <h3>Serviços de atendimento</h3>
+        </div>
 
-        <h3>Serviços de atendimento</h3>
-
-        <span id="quantidadeLocais">
-          0 locais
-        </span>
-
+        <span id="quantidadeLocais">0 locais</span>
       </div>
 
       <ul
@@ -228,35 +210,52 @@
         class="lista-locais"
         aria-live="polite"
       >
-
-        <li>
-          Carregando serviços cadastrados...
-        </li>
-
+        <li>Carregando serviços cadastrados...</li>
       </ul>
 
     </section>
 
-
     <!-- CONTATOS DE EMERGÊNCIA -->
     <section class="contatos-emergencia">
 
-      <h3>Contatos importantes</h3>
+      <div class="titulo-emergencia">
+        <span class="etiqueta-apoio">PEÇA AJUDA</span>
+        <h3>Contatos importantes</h3>
+      </div>
 
-      <p>
-        <strong>180 — Central de Atendimento à Mulher:</strong>
-        orientação e denúncias de violência contra a mulher.
-      </p>
+      <div class="lista-contatos">
 
-      <p>
-        <strong>190 — Polícia Militar:</strong>
-        para situações de emergência e risco imediato.
-      </p>
+        <article class="contato-emergencia">
+          <strong class="numero-emergencia">180</strong>
+          <div>
+            <h4>Central de Atendimento à Mulher</h4>
+            <p>
+              Orientação e denúncias de violência contra a mulher.
+            </p>
+          </div>
+        </article>
 
-      <p>
-        <strong>197 — Polícia Civil:</strong>
-        canal de atendimento da Polícia Civil.
-      </p>
+        <article class="contato-emergencia">
+          <strong class="numero-emergencia">190</strong>
+          <div>
+            <h4>Polícia Militar</h4>
+            <p>
+              Para situações de emergência e risco imediato.
+            </p>
+          </div>
+        </article>
+
+        <article class="contato-emergencia">
+          <strong class="numero-emergencia">197</strong>
+          <div>
+            <h4>Polícia Civil</h4>
+            <p>
+              Canal de atendimento da Polícia Civil.
+            </p>
+          </div>
+        </article>
+
+      </div>
 
       <p class="fonte-oficial">
         Em situações de perigo imediato, procure um local seguro
@@ -267,12 +266,9 @@
 
   </main>
 
-
   <!-- BIBLIOTECAS E SCRIPT -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
   <script src="apoio.js"></script>
 
 </body>
-
 </html>
