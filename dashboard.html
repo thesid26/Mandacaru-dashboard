@@ -79,10 +79,7 @@
 
     </section>
 
-    <!-- Mapa de mortes por região -->
-    <h2>Mortes por região</h2>
-    <div id="mapa"></div>
-
+   
     <!-- Metas com Back4App -->
     <section class="metas">
 
@@ -157,7 +154,47 @@
 
     </section>
 
-    <p class="fonte-dados" id="fonteDados"></p>
+     </main>
+
+  <!-- Rodapé com as fontes -->
+  <footer class="rodape-fontes">
+    <div class="rodape-fontes-conteudo">
+      <h2>Fontes dos dados</h2>
+
+      <ul class="lista-fontes">
+        <li>
+          <strong>Processos de violência doméstica (gráfico de pizza):</strong>
+          <a href="https://justica-em-numeros.cnj.jus.br/painel-violencia-contra-mulher/"
+             target="_blank" rel="noopener noreferrer">
+            CNJ – Justiça em Números: Painel Violência contra a Mulher
+          </a>
+          e
+          <a href="https://www.cnj.jus.br/wp-content/uploads/2023/08/relatorio-violencia-domestica-2023.pdf"
+             target="_blank" rel="noopener noreferrer">
+            CNJ – Relatório de Violência Doméstica 2023 (PDF)
+          </a>
+        </li>
+        <li>
+          <strong>Denúncias (gráfico de linha):</strong>
+          <a href="https://www.gov.br/mdh/pt-br/assuntos/noticias/2020-2/junho/balanco-ligue-180-violencia-domestica-e-familiar-e-a-mais-recorrente"
+             target="_blank" rel="noopener noreferrer">
+            Ministério dos Direitos Humanos – Balanço do Ligue 180 (jun/2020)
+          </a>
+        </li>
+        
+      </ul>
+
+      <!-- O script.js escreve aqui; não apague este id -->
+      <p class="fonte-dados" id="fonteDados"></p>
+    </div>
+  </footer>
+
+  <!-- Ordem importante: biblioteca, depois o script -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
 
   </main>
 

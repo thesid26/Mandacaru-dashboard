@@ -1,3 +1,9 @@
+/* =========================================================
+   DASHBOARD - MANDACARU
+   Ordem: variáveis, geral, cabeçalho, página, filtros,
+   gráficos, metas (CRUD), mapa/apoio, rodapé e responsivo
+   ========================================================= */
+
 /* ---------- Variáveis ---------- */
 :root {
   --cor-escura: #e789fa;
@@ -20,6 +26,9 @@ body {
   line-height: 1.6;
   color: #333;
   background-color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ---------- Cabeçalho ---------- */
@@ -95,7 +104,12 @@ body {
   padding: 24px 20px;
 }
 
-/* ---------- Filtros ---------- */
+main.container {
+  width: 100%;
+  flex: 1;              /* empurra o rodapé para o fim da página */
+}
+
+/* ---------- Filtros (todos por ano) ---------- */
 .filtros {
   display: flex;
   flex-wrap: wrap;
@@ -136,34 +150,6 @@ body {
   border-color: var(--cor-rosa);
 }
 
-.filtro-faixas {
-  flex: 2;
-  min-width: 260px;
-}
-
-.checks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 14px;
-  padding: 8px 10px;
-  border: 2px solid var(--cor-rosa-clara);
-  border-radius: 8px;
-}
-
-.check {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  font-weight: 400;
-  color: #333;
-  cursor: pointer;
-}
-
-.check input {
-  accent-color: var(--cor-rosa);
-}
-
 #btnLimpar {
   padding: 11px 20px;
   background: var(--cor-rosa);
@@ -190,12 +176,13 @@ body {
 /* ---------- Gráficos: 2 em cima, 1 embaixo ---------- */
 .graficos {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));  /* minmax(0, ...) evita estourar a largura */
   gap: 24px;
 }
 
 .grafico-box {
   position: relative;
+  min-width: 0;            /* impede o gráfico de alargar a coluna */
   height: 400px;           /* obrigatório para o Chart.js */
   padding: 16px;
   background: #fff;
@@ -206,37 +193,6 @@ body {
 /* o 3º gráfico (linha) ocupa a linha inteira */
 .grafico-box:nth-child(3) {
   grid-column: 1 / -1;
-}
-
-/* ---------- API pública (tabela IBGE) ---------- */
-/* ---------- Celular: um embaixo do outro ---------- */
-@media (max-width: 700px) {
-  .graficos {
-    grid-template-columns: 1fr;
-  }
-
-  .grafico-box {
-    height: 320px;
-  }
-
-  .filtro {
-    min-width: 45%;
-  }
-
-  .filtro-faixas {
-    min-width: 100%;
-  }
-
-  .lista-menu {
-    gap: 12px;
-    justify-content: flex-start;
-  }
-}
-.fonte-dados {
-  margin-top: 16px;
-  font-size: 13px;
-  color: #666;
-  text-align: center;
 }
 
 /* ---------- Metas (CRUD) ---------- */
@@ -335,6 +291,10 @@ body {
   background: #888 !important;
 }
 
+.btn-perigo {
+  background: #b00020 !important;
+}
+
 .msg-metas {
   min-height: 22px;
   margin-bottom: 8px;
@@ -377,10 +337,6 @@ body {
   font-size: 13px;
 }
 
-.btn-perigo {
-  background: #b00020 !important;
-}
-
 .tabela-vazia {
   text-align: center !important;
   color: #777;
@@ -410,3 +366,79 @@ body {
 .emergencia { margin-top: 16px; font-weight: bold; }
 .aberto  { color: green; }
 .fechado { color: crimson; }
+
+/* ---------- Rodapé com as fontes (fim da página) ---------- */
+.rodape-fontes {
+  background: #fff;
+  border-top: 4px solid var(--cor-escura);
+  margin-top: 24px;
+}
+
+.rodape-fontes-conteudo {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.rodape-fontes h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.lista-fontes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.lista-fontes a {
+  color: var(--cor-rosa);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--cor-rosa);
+  word-break: break-word;
+}
+
+.lista-fontes a:hover {
+  color: var(--cor-roxa);
+  border-bottom-color: var(--cor-roxa);
+}
+
+.fonte-dados {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #666;
+}
+
+
+@media (max-width: 700px) {
+  .graficos {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grafico-box {
+    height: 320px;
+  }
+
+  .filtro {
+    min-width: 45%;
+  }
+
+  .campo,
+  .campo-grande {
+    min-width: 100%;
+  }
+
+  .lista-menu {
+    gap: 12px;
+    justify-content: flex-start;
+  }
+
+  #mapa,
+  #mapaApoio {
+    height: 320px;
+  }
+}
