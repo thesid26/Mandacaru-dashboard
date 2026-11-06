@@ -1,25 +1,32 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Dashboard - Mandacaru</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Nova+Mono&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="dashboard.css">
 </head>
+
 <body>
 
   <header class="cabecalho">
     <div class="container-cabecalho">
+
       <div class="logo-area">
         <img src="img/logo-mandacaru-branco.png" alt="Logo Mandacaru" class="logo-imagem">
         <h1 class="nome-projeto">Mandacaru</h1>
       </div>
+
       <nav class="menu-navegacao">
         <ul class="lista-menu">
           <li><a href="index.html" class="link-menu">Início</a></li>
@@ -28,13 +35,15 @@
           <li><a href="apoio.html" class="link-menu">Locais de Apoio</a></li>
         </ul>
       </nav>
+
     </div>
   </header>
 
   <main class="container">
 
-    <!-- Filtros (todos por ano) -->
+    <!-- Filtros -->
     <section class="filtros">
+
       <div class="filtro">
         <label for="anoInicio">Ano inicial</label>
         <select id="anoInicio"></select>
@@ -46,47 +55,73 @@
       </div>
 
       <button id="btnLimpar" type="button">Limpar filtros</button>
+
     </section>
 
-    <p id="msgVazio" class="msg-vazio" hidden>Nenhum dado para os filtros escolhidos.</p>
+    <p id="msgVazio" class="msg-vazio" hidden>
+      Nenhum dado para os filtros escolhidos.
+    </p>
 
     <!-- Gráficos -->
     <section class="graficos">
-      <div class="grafico-box"><canvas id="grafico1"></canvas></div>
-      <div class="grafico-box"><canvas id="grafico2"></canvas></div>
-      <div class="grafico-box"><canvas id="grafico3"></canvas></div>
+
+      <div class="grafico-box">
+        <canvas id="grafico1"></canvas>
+      </div>
+
+      <div class="grafico-box">
+        <canvas id="grafico2"></canvas>
+      </div>
+
+      <div class="grafico-box">
+        <canvas id="grafico3"></canvas>
+      </div>
+
     </section>
 
     <!-- Mapa por região -->
-<h2>Mortes por região</h2>
-<div id="mapa"></div>
+    <h2>Mortes por região</h2>
+    <div id="mapa"></div>
 
-<!-- Casas de apoio -->
-<section id="apoio">
-  <h2>Casas de apoio perto de você</h2>
-  <button id="btnApoio" type="button">📍 Ver casas de apoio perto de mim</button>
-  <p id="msgApoio" role="status"></p>
-  <div id="mapaApoio" hidden></div>
-  <ol id="listaApoio"></ol>
-  <p class="emergencia">
-    Em perigo agora? Ligue <strong>190</strong>.
-    Orientação: <strong>Ligue 180</strong> ou Liga Mulher <strong>0800 281 0107</strong>.
-  </p>
-</section>
+    <!-- Acesso à página de locais de apoio -->
+    <section id="apoio">
 
-    <!-- Metas (CRUD com Back4App) -->
+      <h2>Casas de apoio perto de você</h2>
+
+      <p>
+        Encontre delegacias, centros de atendimento e outros locais
+        de apoio e proteção para mulheres em Pernambuco.
+      </p>
+
+      <button id="btnApoio" type="button">
+        📍 Ver locais de apoio
+      </button>
+
+      <p class="emergencia">
+        Em perigo agora? Ligue <strong>190</strong>.<br>
+        Orientação: <strong>Ligue 180</strong> ou Liga Mulher
+        <strong>0800 281 0107</strong>.
+      </p>
+
+    </section>
+
+    <!-- Metas com Back4App -->
     <section class="metas">
+
       <h2>Metas por indicador</h2>
+
       <p class="metas-descricao">
         Cadastre metas anuais e compare com os dados reais. As metas aparecem como
         uma linha tracejada nos gráficos de feminicídios e de denúncias.
       </p>
 
       <form id="formMeta" class="form-meta">
+
         <input type="hidden" id="metaId">
 
         <div class="campo">
           <label for="metaIndicador">Indicador</label>
+
           <select id="metaIndicador">
             <option value="feminicidios">Feminicídios</option>
             <option value="denuncias">Denúncias</option>
@@ -110,14 +145,20 @@
 
         <div class="botoes-form">
           <button type="submit" id="btnSalvarMeta">Cadastrar meta</button>
-          <button type="button" id="btnCancelarMeta" class="btn-secundario" hidden>Cancelar</button>
+
+          <button type="button" id="btnCancelarMeta" class="btn-secundario" hidden>
+            Cancelar
+          </button>
         </div>
+
       </form>
 
       <p id="msgMetas" class="msg-metas" role="status"></p>
 
       <div class="tabela-wrap">
+
         <table class="tabela-metas">
+
           <thead>
             <tr>
               <th>Indicador</th>
@@ -129,21 +170,42 @@
               <th>Ações</th>
             </tr>
           </thead>
+
           <tbody id="listaMetas"></tbody>
+
         </table>
+
       </div>
+
     </section>
 
     <p class="fonte-dados" id="fonteDados"></p>
 
   </main>
 
-  
+  <!-- Bibliotecas -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Integração Back4App -->
   <script src="config.js"></script>
   <script src="api.js"></script>
+
+  <!-- Scripts do dashboard -->
   <script src="script.js"></script>
+
+  <!-- Navegação para a página de locais de apoio -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const botaoApoio = document.getElementById('btnApoio');
+
+      if (botaoApoio) {
+        botaoApoio.addEventListener('click', function () {
+          window.location.href = 'apoio.html';
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
